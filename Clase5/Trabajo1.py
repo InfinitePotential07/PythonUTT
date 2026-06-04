@@ -147,7 +147,7 @@ match menu:
             checkBrownies=int(input("Cuantos brownies quedan?"))
             if checkBrownies >= brownies:
                 print("Hay stock suficiente")
-            elif checkBrownies < brownies and checkBrownies > 8:
+            elif checkBrownies < brownies and checkBrownies > 6:
                 print("Hay stock bajo, considera surtir mas")
                 reposicion = reposicion + 1
             else:
@@ -163,7 +163,8 @@ match menu:
         diasIncompletos = 0
         dias=int(input("Cuantos dias trabajo el empleado?"))
         for i in range(0,dias):
-            horas=int(input("Cuantos horas trabajo el dia ", i+1 ,"? "))
+            print("Cuantas horas trabajo el dia ", i+1 ," ?")
+            horas=int(input())
             if horas >= jornada:
                 print("El empleado hizo su jornada completa")
                 diasCompletos = diasCompletos + 1
