@@ -10,7 +10,7 @@ for i in range (0,10):
         suma = suma + num
     elif num < 0:
         print("Numero negativo")
-        suma= suma - num
+        suma = suma + num
     elif num == 0:
         suma = 0
 print("El resultado total es de: ",suma)
