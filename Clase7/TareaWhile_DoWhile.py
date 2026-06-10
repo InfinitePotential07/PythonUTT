@@ -1,4 +1,4 @@
-""""num = 0
+num = 0
 while num < 10:
     print(f"El numero es {num}!")
     num = num + 1
@@ -44,7 +44,7 @@ while energia > 0:
     print("¡CLAP! 👏")
     energia -= 1
 
-print("Te cansaste. Fin del juego.")"""
+print("Te cansaste. Fin del juego.")
 
 #1 Cajero automatico
 while True:
