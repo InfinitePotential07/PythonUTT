@@ -12,7 +12,7 @@ def promedio(gd1,gd2,gd3):
 print(promedio(9,8,10))
 
 def areaTri(h,w):
-    area = (w*h)/2
+    area = (h*w)/2
     return area
 print("El area del triangulo es: ",areaTri(6,9))
 print(promedio(9,8,10))
