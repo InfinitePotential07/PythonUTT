@@ -1,4 +1,4 @@
-# Un arreglo unidimensional (una fila de datos)
+"""# Un arreglo unidimensional (una fila de datos)
 notas = [90, 85, 100, 78]
 
 # Acceder al primer elemento (recuerda que empieza en 0)
@@ -59,4 +59,4 @@ print("Archivos y carpetas actuales:", elementos)
 with open("diario.txt", "a", encoding="utf-8") as archivo:
     archivo.write("Hoy aprendí a manejar archivos en Python.\n")
 
-# Si corres este código varias veces, verás cómo se van acumulando las líneas.
+# Si corres este código varias veces, verás cómo se van acumulando las líneas."""
