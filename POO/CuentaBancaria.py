@@ -30,6 +30,20 @@ class CuentaBancaria:
         print(f"Interés de ${interes} aplicado. Saldo actual: ${self.__saldo}")
 
 
+    def transferir(self, cuanta_destino, monto):
+        if monto <= 0:
+            print("El monto debe ser positivo")
+        elif monto<self.__saldo:
+            self.retirar(monto)
+            print(f"Tranferencia de ${monto} a la cuenta {cuanta_destino.numero_cuenta}")
+            self.retirar(monto)
+            cuanta_destino.depositar(monto)
+            print("Transferercia completa")
+        else: 
+            print("Transferencia cancelada")
+
+
+
 def main():
     cuenta1 = CuentaBancaria("Luis Acosta", "0325109794", 1500.0, 0.05)
     cuenta2 = CuentaBancaria("Kim Lopez", "0325105534", 3000.0, 0.03)
@@ -57,6 +71,13 @@ def main():
     cuenta3.retirar(800.0)
     cuenta3.calcular_interes()
     print(f"Saldo final: ${cuenta3.obtener_saldo()}")
+    print("-----------------------------------------")
+
+    print(f"Saldo actual de la cuenta 1 ${cuenta1.obtener_saldo()}")
+    print(f"Saldo actual de la cuenta 2 ${cuenta2.obtener_saldo()}")
+    cuenta1.transferir(cuenta2, 750.0)
+    print(f"Saldo actual de la cuenta 1 ${cuenta1.obtener_saldo()}")
+    print(f"Saldo actual de la cuenta 2 ${cuenta2.obtener_saldo()}")
 
 
 main()
