@@ -1,4 +1,4 @@
-"""class CuentaBancaria():
+class CuentaBancaria():
     def __init__(self, titular, num_cuenta, saldo, tasa_interes):
         self.titular = titular
         self.num_cuenta = num_cuenta
@@ -30,7 +30,8 @@ def main():
     print(f"Saldo: ${cuenta1.get_saldo()}")
     cuenta1.retirar(670.0)
     print(f"Saldo: ${cuenta1.get_saldo()}")
-main()"""
+    print("-" * 200)
+main()
 
 class TarjetaMetro():
     def __init__(self, codigo_tarjeta, usuario, saldo, tarifa_viaje):
@@ -45,16 +46,28 @@ class TarjetaMetro():
     def recargar(self, monto):
         if monto > 0:
             self.__saldo += monto
-            print("f Recarga de ${monto} realizada con exito.")
-            print("f Saldo actual ${self.__saldo}")
+            print(f"Recarga de ${monto} realizada con exito.")
             
     def pagar_viaje(self):
-        if self.__saldo >= TarjetaMetro.tarifa_viaje:
-            self.__saldo -= TarjetaMetro.tarifa_viaje
-            print("f Pago realizado con exito por ${TarjetaMetro.tarifa_viaje}")
+        if self.tarifa_viaje <= self.__saldo:
+            self.__saldo -= self.tarifa_viaje
+            print(f"El pago de ${self.tarifa_viaje} se ha realizado con exito \nSu saldo actual es de ${self.__saldo} \nFeliz viaje!")
+        else:
+            print("Fondos insuficientes. \nRealize una recarga.")
         
 def main():
     user1 = TarjetaMetro("124223", "Ulises Lopez", 25.0, 15.0)
-    user1.tarifa_viaje()
-    print("f Saldo {user1.get_saldo()}")
+    print(f"El saldo de {user1.usuario} es de ${user1.get_saldo()}")
+    user1.recargar(30)
+    print(f"El saldo de {user1.usuario} es de ${user1.get_saldo()}")
+    user1.pagar_viaje()
+    print(f"El saldo de {user1.usuario} es de ${user1.get_saldo()}")
+    print("-" * 50)
+    
+    user2 = TarjetaMetro("454223", "Kim De la torre", 100.0, 16.0)
+    print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
+    user2.recargar(26.0)
+    print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
+    user2.pagar_viaje()
+    print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
 main()
