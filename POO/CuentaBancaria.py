@@ -30,14 +30,14 @@ class CuentaBancaria:
         print(f"Interés de ${interes} aplicado. Saldo actual: ${self.__saldo}")
 
 
-    def transferir(self, cuanta_destino, monto):
+    def transferir(self, cuenta_destino, monto):
         if monto <= 0:
             print("El monto debe ser positivo")
         elif monto<self.__saldo:
             self.retirar(monto)
-            print(f"Tranferencia de ${monto} a la cuenta {cuanta_destino.numero_cuenta}")
+            print(f"Tranferencia de ${monto} a la cuenta {cuenta_destino.numero_cuenta}")
             self.retirar(monto)
-            cuanta_destino.depositar(monto)
+            cuenta_destino.depositar(monto)
             print("Transferercia completa")
         else: 
             print("Transferencia cancelada")

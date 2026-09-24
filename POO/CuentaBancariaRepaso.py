@@ -54,6 +54,17 @@ class TarjetaMetro():
             print(f"El pago de ${self.tarifa_viaje} se ha realizado con exito \nSu saldo actual es de ${self.__saldo} \nFeliz viaje!")
         else:
             print("Fondos insuficientes. \nRealize una recarga.")
+              
+    def transferir(self, cuenta_destino, monto):
+        if monto <= 0:
+            print("El monto debe ser positivo")
+        elif monto < self.__saldo:
+            self.__saldo -= monto
+            print(f"Tranferencia de ${monto} a la cuenta {cuenta_destino.usuario}")
+            cuenta_destino.recargar(monto)
+            print("Transferercia completa")
+        else:
+            print("Transferencia cancelada")
         
 def main():
     user1 = TarjetaMetro("124223", "Ulises Lopez", 25.0, 15.0)
@@ -69,5 +80,12 @@ def main():
     user2.recargar(26.0)
     print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
     user2.pagar_viaje()
+    print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
+    print("-" * 50)
+    
+    print(f"El saldo de {user1.usuario} es de ${user1.get_saldo()}")
+    print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
+    user1.transferir(user2, 15)
+    print(f"El saldo de {user1.usuario} es de ${user1.get_saldo()}")
     print(f"El saldo de {user2.usuario} es de ${user2.get_saldo()}")
 main()
