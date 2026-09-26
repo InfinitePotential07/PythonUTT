@@ -36,7 +36,7 @@ class CuentaBancaria:
         elif monto<self.__saldo:
             self.retirar(monto)
             print(f"Tranferencia de ${monto} a la cuenta {cuenta_destino.numero_cuenta}")
-            self.retirar(monto)
+            
             cuenta_destino.depositar(monto)
             print("Transferercia completa")
         else: 

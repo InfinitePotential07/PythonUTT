@@ -47,6 +47,8 @@ class TarjetaMetro():
         if monto > 0:
             self.__saldo += monto
             print(f"Recarga de ${monto} realizada con exito.")
+        else:
+            print("Error: el monto de recarga debe ser positivo.")
             
     def pagar_viaje(self):
         if self.tarifa_viaje <= self.__saldo:
@@ -58,7 +60,9 @@ class TarjetaMetro():
     def transferir(self, cuenta_destino, monto):
         if monto <= 0:
             print("El monto debe ser positivo")
-        elif monto < self.__saldo:
+        elif cuenta_destino is self:
+            print("No puedes transferir a la misma tarjeta.")
+        elif monto <= self.__saldo:
             self.__saldo -= monto
             print(f"Tranferencia de ${monto} a la cuenta {cuenta_destino.usuario}")
             cuenta_destino.recargar(monto)
