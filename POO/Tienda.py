@@ -23,21 +23,22 @@ class Producto:
     @staticmethod
     def calcular_total(precio, cantidad):
         return (precio * cantidad) + (precio * Producto.iva)        
-        
 
-producto1=Producto("Vodka", 500, 100)
-producto2=Producto("Asador", 1200, 54)
-producto3=Producto("Comedor", 1750, 32)
+def main():
+    producto1=Producto("Vodka", 500, 100)
+    producto2=Producto("Asador", 1200, 54)
+    producto3=Producto("Comedor", 1750, 32)
 
-print(producto1.nombre, producto1.precio, producto1.stock)
-print(producto2.nombre, producto2.precio, producto2.stock)
-print(producto3.nombre, producto3.precio, producto3.stock)
+    print(producto1.nombre, producto1.precio, producto1.stock)
+    print(producto2.nombre, producto2.precio, producto2.stock)
+    print(producto3.nombre, producto3.precio, producto3.stock)
 
-producto4 = Producto.crear_desde_texto("Espejo, 899, 14")
-print(producto4.nombre, producto4.precio, producto4.stock)
+    producto4 = Producto.crear_desde_texto("Espejo, 899, 14")
+    print(producto4.nombre, producto4.precio, producto4.stock)
 
-total_compra = Producto.calcular_total(producto4.precio, 4)
-print(f"4 unidades de {producto4.nombre} es un total de ${total_compra}")
+    total_compra = Producto.calcular_total(producto4.precio, 4)
+    print(f"4 unidades de {producto4.nombre} es un total de ${total_compra}")
 
-stock_vendido = producto4.vender(4)
-print(f"El stock restante de {producto4.nombre} es de {stock_vendido}")
+    stock_vendido = producto4.vender(4)
+    print(f"El stock restante de {producto4.nombre} es de {stock_vendido}")
+main()

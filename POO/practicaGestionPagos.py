@@ -27,6 +27,17 @@ class Vendedor(Empleado):
             print(f"---Meta alcanzada--- \nSu sueldo total es de: ${self.sueldo * 1.10:,.2f}")
         else:
             print(f"---Meta no alcanzada--- \nSu sueldo total es de: ${self.sueldo}")
+
+class Gerente(Empleado):
+    def __init__(self,nombre, sueldo, departamento):
+        super().__init__(nombre, sueldo)
+        self.departamento = departamento
+        self.bono_gerencial = 0.20
+
+    def informacion(self):
+        return print(f"{super().informacion()} \nDepartamento: {self.departamento} \nBono gerencial 20% \nSueldo total con bono: {self.sueldo+(self.sueldo*self.bono_gerencial)}")
+
+
     
 def main():
     empleado1 = Empleado("Pancho Perez", 14543.32)
@@ -39,4 +50,6 @@ def main():
     vendedor2 = Vendedor("Ulises Lopez", 45000, 15000, 35000)
     vendedor2.informacion()
     vendedor2.calcular_sueldo()
+    gerente= Gerente("German Garmendia", 65000, "Linea blanca.")
+    gerente.informacion()
 main()
