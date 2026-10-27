@@ -73,6 +73,4 @@ def main():
     video1 = RecursoDigital("Video", "youtube.com/JulioProfe/Productos-Notables")
     curso1.agregar_recurso(video1)
     curso1.mostrar_recurso()
-
-
 main()
