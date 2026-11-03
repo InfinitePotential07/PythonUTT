@@ -8,24 +8,24 @@ class PantallaProyector:
 
 class Pelicula:
     def __init__(self, titulo, duracion):
-        self.___titulo = titulo
-        self.___duracion = duracion
+        self.__titulo = titulo
+        self.__duracion = duracion
 
     @property
     def titulo(self):
-        return self.___titulo
+        return self.__titulo
 
     @titulo.setter
     def titulo(self, nuevo_titulo):
-        self.___titulo = nuevo_titulo
+        self.__titulo = nuevo_titulo
 
     @property
     def duracion(self):
-        return self.___duracion
+        return self.__duracion
     
     @duracion.setter
     def duracion(self, nueva_duracion):
-        self.___duracion = nueva_duracion
+        self.__duracion = nueva_duracion
 
     def get_info(self):
         return f"Título: {self.__titulo}\nDuración: {self.__duracion}min."
@@ -53,7 +53,7 @@ class Sala:
         else:
             print("Error")
 
-    def agregar_a_carterela(self, pelicula):
+    def agregar_a_cartelera(self, pelicula):
         if isinstance(pelicula, Pelicula):
             self.__cartelera.append(pelicula)
         else:
@@ -80,10 +80,10 @@ class Cine:
         self.__salas.append(Sala(numero, asientos))
 
     def agregar_pelicula(self, pelicula):
-        sala = int(input("Ingresa el numero de sala"))
+        sala = int(input("Ingresa el numero de sala: "))
         for s in self.__salas:
             if s.numero_sala == sala:
-                s.agregar_cartelera(pelicula)
+                s.agregar_a_cartelera(pelicula)
 
 
     def mostrar_info(self):
@@ -94,12 +94,13 @@ class Cine:
             s.mostrar_cartelera()
 
 def main():
+    pantalla1 = PantallaProyector(345, "Canon")
     cine1 = Cine("Cinepolis", "Calle 1 num. 54")
     pelicula1 = Pelicula("X-men", 70)
     pelicula2 = Pelicula("Las cronicas de Narnia: El sobrino del mago", 130)
     cine1.crear_sala(1,40, pantalla1)
     cine1.crear_sala(2, 45, pantalla1)
-    pantalla1 = PantallaProyector(345, "Canon")
+    
     cine1.agregar_pelicula(pelicula1)
     cine1.agregar_pelicula(pelicula2)
     cine1.mostrar_info()
