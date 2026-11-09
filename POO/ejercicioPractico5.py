@@ -63,8 +63,4 @@ def main():
     colab2 = Colaborador("Ismael Haaz", "UTT", "Lic. RRHH")
     proyecto2.agregar_colaborador(colab2, rol2)
     proyecto2.mostrar_proyecto()
-
-    help(Colaborador)
-    help(Rol)
-    help(Proyecto)
 main()

@@ -120,9 +120,4 @@ def main():
 
     calcular_area(lista_figura)
 
-    help(Figura)
-    help(Circulo)
-    help(Rectangulo)
-
-
 main()
